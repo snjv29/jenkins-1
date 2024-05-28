@@ -1,0 +1,26 @@
+Server:
+  port: 9002
+Spring:
+  application:
+    name: spring-boot-app-docker-k8-main
+  main:
+    "banner-mode": off
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/hplus
+    username: root
+    password: pass@word1
+    platform: mysql
+    intialization-mode: always
+    hikari:
+      connection-timeout: 6000000
+      maximum-pool-size: 5
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      properties:
+        hibernate:
+          dialect: org>hiberate.dialect.MYSQL8Dialect
+      generate-ddl: true
+      show-sql: true
