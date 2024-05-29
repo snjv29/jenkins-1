@@ -1,0 +1,9 @@
+node {
+    stage("clone the project"){
+        git branch: 'master', url: 'https://github.com/snjv29/jenkins-1.git'
+    }
+    stage("Compilation"){
+        bat "./mvnw clean install -DskipTests"
+    }
+
+ }
