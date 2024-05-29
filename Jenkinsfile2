@@ -5,5 +5,12 @@ node {
     stage("Compilation"){
         bat "./mvnw clean install -DskipTests"
     }
-
+    stage("Test and Deployment"){
+        stage("Running Test Cases"){
+        bat "./mvnw test -Punit"
+    }
+    stage("Deployment"){
+        bat "./mvnw spring-boot:run -Dserver.port=9034 &"
+    }
+    }
  }
